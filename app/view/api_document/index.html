@@ -1,0 +1,17 @@
+
+
+{include file="common/head" /}
+
+{include file="api_document/navbar" /}
+
+<div id="main">
+    {if ($routes !== null)}
+        {include file="api_document/sidebar" /}
+    {/if}
+
+    {if ($route !== null)}
+        {include file="api_document/content" /}
+    {/if}
+</div>
+
+{include file="common/foot" /}

@@ -1,0 +1,4 @@
+<?php
+//000000000000
+ exit();?>
+a:4:{s:2:"id";a:7:{s:4:"name";s:2:"id";s:4:"type";s:16:"int(11) unsigned";s:7:"notnull";b:0;s:7:"default";N;s:7:"primary";b:1;s:7:"autoinc";b:1;s:7:"comment";s:0:"";}s:6:"status";a:7:{s:4:"name";s:6:"status";s:4:"type";s:10:"tinyint(1)";s:7:"notnull";b:0;s:7:"default";s:1:"1";s:7:"primary";b:0;s:7:"autoinc";b:0;s:7:"comment";s:0:"";}s:7:"user_id";a:7:{s:4:"name";s:7:"user_id";s:4:"type";s:16:"int(11) unsigned";s:7:"notnull";b:0;s:7:"default";N;s:7:"primary";b:0;s:7:"autoinc";b:0;s:7:"comment";s:0:"";}s:8:"goods_id";a:7:{s:4:"name";s:8:"goods_id";s:4:"type";s:16:"int(11) unsigned";s:7:"notnull";b:0;s:7:"default";N;s:7:"primary";b:0;s:7:"autoinc";b:0;s:7:"comment";s:0:"";}}

@@ -1,0 +1,4 @@
+<?php
+//000000000000
+ exit();?>
+a:5:{s:2:"id";a:7:{s:4:"name";s:2:"id";s:4:"type";s:16:"int(10) unsigned";s:7:"notnull";b:0;s:7:"default";N;s:7:"primary";b:1;s:7:"autoinc";b:1;s:7:"comment";s:0:"";}s:6:"status";a:7:{s:4:"name";s:6:"status";s:4:"type";s:10:"tinyint(1)";s:7:"notnull";b:0;s:7:"default";s:1:"0";s:7:"primary";b:0;s:7:"autoinc";b:0;s:7:"comment";s:0:"";}s:9:"listorder";a:7:{s:4:"name";s:9:"listorder";s:4:"type";s:20:"smallint(5) unsigned";s:7:"notnull";b:0;s:7:"default";s:1:"0";s:7:"primary";b:0;s:7:"autoinc";b:0;s:7:"comment";s:0:"";}s:4:"name";a:7:{s:4:"name";s:4:"name";s:4:"type";s:11:"varchar(30)";s:7:"notnull";b:0;s:7:"default";s:0:"";s:7:"primary";b:0;s:7:"autoinc";b:0;s:7:"comment";s:12:"种类名称";}s:8:"image_id";a:7:{s:4:"name";s:8:"image_id";s:4:"type";s:16:"int(10) unsigned";s:7:"notnull";b:0;s:7:"default";N;s:7:"primary";b:0;s:7:"autoinc";b:0;s:7:"comment";s:0:"";}}

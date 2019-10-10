@@ -1,0 +1,21 @@
+
+<!-- sidebar -->
+
+<div id="sidebar">
+    <div id="sidebarSearch">
+        <input type="text" class="form-control" id="searchInput" placeholder="请输入搜索关键词..." />
+        <i class="fa fa-search"></i>
+    </div>
+
+    <div id="sidebarList">
+        <ul>
+            {foreach $routes as $i => $routeName}
+                {if ($i == $route_index)}
+                    <li class="list-selected">{$routeName}</li>
+                {else}
+                    <li>{$routeName}</li>
+                {/if}
+            {/foreach}
+        </ul>
+    </div>
+</div>

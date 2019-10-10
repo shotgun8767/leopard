@@ -1,0 +1,197 @@
+
+<!-- content -->
+
+<!-- 头部 -->
+<div id="contentHead">
+    <i class="fa fa-bars" id="sidebarControl"></i>
+    <h3>{$route['name']}</h3>
+</div>
+
+{php} $param_ex = !empty($route['param']) || !empty($route['post']);{/php}
+{php} $return_ex = !empty($route['return_data']);{/php}
+
+
+<div id="content">
+    <!-- 选项卡标签 -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#tab-base">基础信息</a>
+        </li>
+        {if ($param_ex)}
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#tab-param">请求参数</a>
+        </li>
+        {/if}
+        {if ($return_ex)}
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#tab-demo">示例</a>
+        </li>
+        {/if}
+    </ul>
+
+    <!-- 选项卡内容 -->
+    <div class="tab-content" id="content-tab-content">
+
+        <!-- 选项卡：基础信息 -->
+        <div id="tab-base" class="tab-pane active">
+            <!-- METHOD -->
+            <div class="assoc-box">
+                <i class="assoc-key">method</i>
+                <i class="assoc-value">{$route.method}</i>
+            </div>
+
+            <!-- url -->
+            <div class="assoc-box" id="baseUrl">
+                <i class="assoc-key">url</i>
+                <i class="assoc-value" style="background-color: #ff9800;">{$route.rule}</i>
+            </div>
+
+            <!-- RESTFUL -->
+            <div class="assoc-box">
+                <i class="assoc-key">api</i>
+                <i class="assoc-value" style="background-color: #5c6bc0;">RESTful</i>
+            </div>
+
+            {if ($route['token_require'])}
+                <blockquote class="quote-warning">
+                    <span>调用本接口时需要在header中传递Token令牌</span>
+                </blockquote>
+            {/if}
+
+            {if ($route['desc'])}
+                <blockquote class="quote-success quote-content-default">
+                    <span>{$route.desc}</span>
+                </blockquote>
+            {/if}
+
+            {if ($route['return_desc'])}
+                <div class="gray-label">
+                    <span></span><span></span>
+                    <label>返回JSON数据包中的data</label>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">属性</th>
+                        <th scope="col">类型</th>
+                        <th scope="col">说明</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach ($route['return_desc'] as $name => $detail)}
+                    <tr>
+                        <td>{$name}</td>
+                        <td>{$detail[0]??''}</td>
+                        <td>{$detail[1]??''}</td>
+                    {/foreach}
+                    </tbody>
+                </table>
+            {/if}
+        </div>
+
+        {if ($param_ex)}
+        <!-- 选项卡：请求参数 -->
+        <div id="tab-param" class="tab-pane">
+
+            {if (!empty($route['param']))}
+            <div class="gray-label">
+                <span></span><span></span>
+                <label>param参数</label>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">名称</th>
+                    <th scope="col">类型</th>
+                    <th scope="col">是否必填</th>
+                    <th scope="col">默认值</th>
+                    <th scope="col">描述</th>
+                </tr>
+                </thead>
+                <tbody>
+                {foreach ($route['param'] as $name => $detail)}
+                <tr>
+                    <td>{$name}</td>
+                    <td>{$detail['type']}</td>
+                    <td>{$detail['require']?'是':'否';}</td>
+                    <td>{$detail['default']??''}</td>
+                    <td>{$detail['desc']??''}</td>
+                </tr>
+                {/foreach}
+                </tbody>
+            </table>
+            {/if}
+
+            {if (!empty($route['post']))}
+            <div class="gray-label">
+                <span></span><span></span>
+                <label>post参数</label>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">名称</th>
+                    <th scope="col">类型</th>
+                    <th scope="col">是否必填</th>
+                    <th scope="col">默认值</th>
+                    <th scope="col">描述</th>
+                </tr>
+                </thead>
+                <tbody>
+                {foreach ($route['post'] as $name => $detail)}
+                <tr>
+                    <td>{$name}</td>
+                    <td>{$detail['type']}</td>
+                    <td>{$detail['require']?'是':'否';}</td>
+                    <td>{$detail['default']??''}</td>
+                    <td>{$detail['desc']??''}</td>
+                </tr>
+                {/foreach}
+                </tbody>
+            </table>
+            {/if}
+        </div>
+        {/if}
+
+        <!-- 选项卡：示例 -->
+        <div id="tab-demo" class="tab-pane">
+            {if ($route['pattern'])}
+                {if ($pattern_param = ($route['pattern']['param']??[]))}
+                    <div class="gray-label">
+                        <span></span><span></span>
+                        <label>请求参数</label>
+                    </div>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">属性</th>
+                            <th scope="col">值</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {foreach ($pattern_param as $name => $value)}
+                            <tr>
+                                <td>{$name}</td>
+                                <td>{$value}</td>
+                            </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+                {/if}
+                {if ($route['pattern']['token']??false)}
+                    <blockquote class="quote-warning">
+                        <span>Token权限等级为：{$route['pattern']['token']['auth']??0}</span>
+                    </blockquote>
+                {/if}
+            {/if}
+            {if ($route['return_data']??0)}
+            <div class="gray-label">
+                <span></span><span></span>
+                <label>返回JSON包数据</label>
+            </div>
+            <pre class="hljs"><code>{$route['return_data']}</code></pre>
+            {/if}
+            </div>
+        </div>
+    </div>
+</div>

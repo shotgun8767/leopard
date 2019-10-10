@@ -1,0 +1,20 @@
+
+<!-- foot -->
+
+{if ($js)}
+    {foreach ($js as $item)}
+    <script type="text/javascript" src="__STATIC__/js/{$item}.js"></script>
+    {/foreach}
+{/if}
+
+{if ($static)}
+    {foreach ($static as $item)}
+    <script type="text/javascript" src="__STATIC__/{$item}"></script>
+    {/foreach}
+{/if}
+
+
+<script>hljs.initHighlightingOnLoad();    </script>
+
+</body>
+</html>

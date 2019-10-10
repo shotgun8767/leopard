@@ -1,0 +1,18 @@
+10000   Validate
+20000   Database
+30000   Service; Token
+40000   Route
+
+100000  User
+110000  Wx
+120000  Image
+130000  Banner
+140000  Goods
+150000  UserSubscription
+160000  Order; OrderGoods
+170000  Activity; ActivityPrize; SubActivity
+180000  Category
+190000  Collection
+200000  UserRun
+210000  UserPrize
+220000  Cos
